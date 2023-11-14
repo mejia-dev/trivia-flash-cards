@@ -1,16 +1,24 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-// import OtherModule from './js/otherModule.js';
+import { getTriviaQuestions } from './js/openTrivia.js';
 
 function handleSampleForm() {
   event.preventDefault();
-  document.getElementById("outputDiv").innerText = null;
-  const pTag = document.createElement("p");
-  pTag.append(document.getElementById("text-input").value);
-  document.getElementById("outputDiv").append(pTag);
+  getTriviaQuestions(1);
+}
+
+export function buildCard(question,answer) {
+  document.getElementById("questionText").innerText = question;
+  document.getElementById("questionAnswer").innerText = answer;
+  document.getElementById("questionAnswer").setAttribute("class","hidden");
+}
+
+function toggleAnswerVisibility() {
+  document.getElementById("questionAnswer").classList.toggle("hidden");
 }
 
 window.addEventListener("load", function() {
-  document.getElementById("sample-form").addEventListener("submit", handleSampleForm);
+  document.getElementById("newQuestion").addEventListener("click", handleSampleForm);
+  document.getElementById("showAnswer").addEventListener("click", toggleAnswerVisibility);
 });

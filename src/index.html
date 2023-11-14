@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HTML/CSS/JS Template Project!</title>
+  <title>Trivia Question Generator</title>
 </head>
 <body>
-  <h1>Sample form to test functionality:</h1>
+  <h1>Trivia Question Generator</h1>
 
-  <form id="sample-form">
-    <label for="text-input">Enter a number:</label>
-    <input id="text-input" type="text">
-    <button type="submit">Submit</button>
-  </form>
+  <button id="newQuestion">Generate New Question</button>
 
-  <div id="outputDiv"></div>
+  <br><br><br>
+
+  <div id="outputDiv">
+    <h2 id="questionTitle">True or False?</h2>
+    <p id="questionText"></p>
+    <p id="questionAnswer" class="hidden"></p>
+    <button id="showAnswer">Show Answer</button>
+  </div>
 </body>
 </html>
