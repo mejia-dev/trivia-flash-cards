@@ -7,8 +7,10 @@ export function getTriviaQuestions(numberOfQuestions) {
   xhr.addEventListener("loadend", function () {
     if (this.status === 200) {
       const result = JSON.parse(this.responseText);
-      buildCard(result.results[0].question, result.results[0].correct_answer);
-      // console.log(result.results[0].question, result.results[0].correct_answer, result.results[0].incorrect_answers);
+      let txt = document.createElement("textarea");
+      txt.innerHTML = result.results[0].question;
+      const questionText = txt.value;
+      buildCard(questionText, result.results[0].correct_answer);
     }
   });
 
